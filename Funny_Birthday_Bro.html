@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Bro</title>
+<style>
+body{
+margin:0;
+background:#000;
+color:#00ff66;
+font-family:Consolas,monospace;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+}
+#terminal{
+width:min(900px,95%);
+padding:20px;
+white-space:pre-wrap;
+font-size:18px;
+line-height:1.6;
+text-shadow:0 0 8px #00ff66;
+}
+button{
+display:none;
+margin-top:20px;
+padding:12px 24px;
+font-size:18px;
+background:#001500;
+color:#00ff66;
+border:1px solid #00ff66;
+border-radius:8px;
+cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div id="terminal"></div>
+<div style="position:fixed;bottom:30px;">
+<button id="btn" onclick="gift()">🎁 Open Secret Gift</button>
+</div>
+
+<script>
+const lines=[
+"> boot --birthday",
+"",
+"Initializing BroOS v25.0...",
+"Loading Memories............. ██████████ 100%",
+"Installing Happiness......... ✔",
+"Installing Money............ ✔",
+"Installing Good Luck......... ✔",
+"Searching for Girlfriend..... ✖ Not Found 😂",
+"Searching for Brain.......... Loading...",
+"Searching for Hair........... Low Storage ⚠",
+"",
+"WARNING:",
+"Age has been increased by +1.",
+"",
+"Compiling Birthday...",
+"",
+"ERROR:",
+"Too much cake detected. 🍰",
+"",
+"Applying Hotfix...",
+"Calories ignored successfully. ✔",
+"",
+"Access Granted ✔"
+];
+
+let i=0;
+const term=document.getElementById("terminal");
+
+function typeLine(){
+ if(i<lines.length){
+   term.textContent+=lines[i]+"\n";
+   i++;
+   setTimeout(typeLine,500);
+ }else{
+   document.getElementById("btn").style.display="inline-block";
+ }
+}
+typeLine();
+
+function gift(){
+document.body.innerHTML=`
+<div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#111;color:white;font-family:Arial,sans-serif;text-align:center;padding:20px">
+<div>
+<h1>🎉 Happy Birthday, Bro! 🎂</h1>
+<h2>🏆 Achievement Unlocked</h2>
+<p style="font-size:24px">
+<strong>Professional Trouble Maker</strong>
+</p>
+<p style="font-size:22px">
+Level Up: +1 😂<br>
+XP Gained: 365 Days<br>
+Bank Balance: Still Loading... 💸<br>
+Girlfriend DLC: Coming Soon... 🤣
+</p>
+<h3>Mission for Today</h3>
+<p>🍰 Eat Cake<br>🎁 Collect Gifts<br>💸 Make Someone Else Pay the Bill 😎</p>
+<h2 style="color:gold">return LEGEND; 🚀❤️</h2>
+</div>
+</div>`;
+}
+</script>
+
+</body>
+</html>
